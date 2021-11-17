@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+			integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+			crossorigin="anonymous"
+		/>
+		<title>Add Pet</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="display-1 text-center">Add New Pet</h1>
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<form method="POST">
+						{{form.hidden_tag()}} {% for field in form if
+						field.widget.input_type != 'hidden' %}
+						<div class="form-group">
+							{{field.label}} {{field(class_="form-control")}} {% for err in
+							field.errors %}
+							<small class="form-text text-danger"> {{err}} </small>
+							{% endfor %}
+						</div>
+						{% endfor %}
+						<button class="btn btn-success btn-lg">Add</button>
+						<!-- <a href="/phones" class="btn btn-danger btn-lg">Go back</a> -->
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
