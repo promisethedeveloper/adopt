@@ -17,13 +17,15 @@
 			<h1>Pets</h1>
 			<div class="row">
 				{% for pet in pets %}
-				<div class="col-4">
-					{% if pet.photo_url %}
-					<img src="{{pet.photo_url}}" alt="" class="w-50 p-3" />
-					{% endif %} {{pet.name}} {% if pet.available %}
+				<div class="col-3">
+					<img src="{{pet.image_url()}}" alt="" class="img-thumbnail" />
+					<a href="/{{pet.id}}">{{pet.name}}</a>
+					{% if pet.available %}
 					<strong>is available!</strong>
 					{% endif %}
 				</div>
+				{% else %}
+				<div class="col-12">No pets yet.</div>
 				{% endfor %}
 			</div>
 			<a href="/add" class="btn btn-success btn-lg">Add a Pet</a>
